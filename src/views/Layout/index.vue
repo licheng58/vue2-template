@@ -13,9 +13,9 @@
 
 <script>
 /*eslint-disable */
-import SideBar from './components/SideBar.vue'
-import NavBar from './components/NavBar.vue'
-import AppMain from './components/AppMain.vue'
+import SideBar from './components/SideBar/index.vue'
+import NavBar from './components/NavBar/index.vue'
+import AppMain from './components/AppMain/index.vue'
 export default {
   components: {
     SideBar,

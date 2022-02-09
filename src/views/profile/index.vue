@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar">navbar</div>
+  <div class="profile">个人中心</div>
 </template>
 
 <script>

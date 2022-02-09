@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">layout</div>
+  <div class="article-create">权限列表</div>
 </template>
 
 <script>

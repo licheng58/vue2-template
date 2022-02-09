@@ -7,16 +7,23 @@ import Element from 'element-ui'
 Vue.use(Element, { size: 'small', zIndex: 3000 })
 import 'element-ui/lib/theme-chalk/index.css'
 
+// 全局组件
 import SvgIcon from '@/icons'
 Vue.component('svg-icon', SvgIcon)
+import LangSelect from '@/components/LangSelect'
+Vue.component('lang-select', LangSelect)
+
+// 国际化
+import i18n from '@/i18n'
+
+// 导入页面鉴权
+import '@/permission.js'
 
 Vue.config.productionTip = false
-
-// import SvgIcon from '@/components/SvgIcon.vue'
-// Vue.component('svg-icon', SvgIcon)
 
 new Vue({
   router,
   store,
+  i18n,
   render: (h) => h(App)
 }).$mount('#app')
