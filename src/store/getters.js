@@ -16,7 +16,7 @@ const getters = {
 
   sidebarOpened: (state) => state.app.sidebarOpened,
   language: (state) => {
-    // console.log(state.app.language);
+    console.log(state.app.language);
     return state.app.language
   },
   mainColor: (state) => state.theme.mainColor,

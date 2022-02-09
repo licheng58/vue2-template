@@ -3,31 +3,26 @@ import mZhLocale from './lang/zh'
 import mEnLocale from './lang/en'
 import { getItem } from '@/utils/storage'
 import { LANG } from '@/constant'
-import Vue from 'vue'
-Vue.use(VueI18n)
+import lang_en from "element-ui/lib/locale/lang/en";
+import lang_zh from "element-ui/lib/locale/lang/zh-CN";
+import el_local from "element-ui/lib/locale";
 
 const messages = {
   en: {
-    msg: {
-      ...mEnLocale
-    }
+    ...mEnLocale,
+    ...lang_en
   },
   zh: {
-    msg: {
-      ...mZhLocale
-    }
+    ...mZhLocale,
+    ...lang_zh
   }
 }
-
-/**
- * 返回当前 lang
- */
-function getLanguage() {
-  return getItem(LANG) || 'zh'
-}
-
+import Vue from 'vue'
+Vue.use(VueI18n)
 const i18n = new VueI18n({
-  locale: getLanguage(),
+  locale: getItem(LANG) || 'zh',
   messages
 })
+
+el_local.i18n((key, value) => i18n.t(key, value))
 export default i18n

@@ -45,7 +45,8 @@ export default {
 
   methods: {
     handleSetLanguage(lang) {
-      console.log(lang)
+      // console.log(this.$i18n.locale)
+      this.$i18n.locale = lang
       this.$store.commit('app/setLanguage', lang)
       Message.success('更新成功')
     }

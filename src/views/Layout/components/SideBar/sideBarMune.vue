@@ -36,7 +36,7 @@ export default {
     // 计算高亮 menu 的方法
     activeMenu: function () {
       const { meta, path } = this.$route
-      console.log(this.$route)
+      // console.log(this.$route)
       if (meta.activeMenu) {
         return meta.activeMenu
       }
@@ -45,8 +45,9 @@ export default {
 
     // 计算路由表结构
     filterRoutes: function () {
+      console.log(this.$route)
       const filterRoutes = filterRouters(this.$router.getRoutes())
-      console.log(filterRoutes)
+      // console.log(generateMenus(filterRoutes))
       return generateMenus(filterRoutes)
     }
   }

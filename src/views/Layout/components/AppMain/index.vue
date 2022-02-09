@@ -1,9 +1,20 @@
 <template>
-  <div class="app-main">appmain</div>
+  <div class="app-main">
+    {{ $t('theme.themeColorChange') }}
+
+    <el-date-picker v-model="value" type="date" placeholder="选择日期">
+    </el-date-picker>
+  </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      value: ''
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
