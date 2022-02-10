@@ -1,5 +1,8 @@
 <template>
-  <div class="layout">
+  <div
+    class="layout"
+    :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']"
+  >
     <!-- 左侧 menu -->
     <side-bar class="sidebar-container" :style="{ background: mainColor }" />
     <div class="main-container">
@@ -54,9 +57,10 @@ export default {
   right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
+  transition: width #{$sideBarDuration};
 }
 
-// .sidebar-container {
-//   background: #{$menuBg};
-// }
+.hideSidebar .fixed-header {
+  width: calc(100% - #{$hideSideBarWidth});
+}
 </style>

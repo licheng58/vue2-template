@@ -1,3 +1,7 @@
-.el-avatar{
+.el-avatar {
   background: none !important;
+}
+
+.el-avatar > img {
+  width: 100%;
 }

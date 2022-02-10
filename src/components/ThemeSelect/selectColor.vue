@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { generateNewStyle, writeNewStyle } from '@/utils/theme'
 export default {
   data() {
     return {
@@ -72,9 +73,9 @@ export default {
 
     async comfirm() {
       // 1.1 获取主题色
-      // const newStyleText = await generateNewStyle(mColor.value)
+      const newStyleText = await generateNewStyle(this.mainColor)
       // 1.2 写入最新主题色
-      // writeNewStyle(newStyleText)
+      writeNewStyle(newStyleText)
       // 2. 保存最新的主题色
       this.$store.commit('theme/setMainColor', this.mainColor)
       // 3. 关闭 dialog

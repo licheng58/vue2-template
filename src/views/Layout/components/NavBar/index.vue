@@ -1,6 +1,12 @@
 <template>
   <div class="navbar">
+    <!-- 切换侧边栏 -->
+    <Hamburger class="hamburger-container" id="guide-hanburger" />
     <div class="right-menu">
+      <!-- 搜索 -->
+      <HeaderSearch class="right-menu-item hover-effect" id="guide-search" />
+      <!-- 全屏切换 -->
+      <ScreenFull class="right-menu-item hover-effect" id="guide-full" />
       <!-- 主题色 -->
       <ThemeSelect class="right-menu-item hover-effect" id="guide-theme" />
       <!-- 语言切换 -->
@@ -35,9 +41,17 @@
 
 <script>
 import ThemeSelect from '@/components/ThemeSelect'
+import ScreenFull from '@/components/ScreenFull'
+import LangSelect from '@/components/LangSelect'
+import HeaderSearch from '@/components/HeaderSearch'
+import Hamburger from '@/components/Hamburger'
 export default {
   components: {
-    ThemeSelect
+    ThemeSelect,
+    ScreenFull,
+    LangSelect,
+    HeaderSearch,
+    Hamburger
   },
 
   methods: {
