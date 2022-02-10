@@ -4,7 +4,7 @@
       <el-avatar
         :size="44"
         shape="square"
-        src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png"
+        :src="require('@/assets/my-logo.gif')"
       />
       <h1 class="logo-title" v-if="$store.getters.sidebarOpened">
         imooc-admin

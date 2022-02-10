@@ -1,6 +1,9 @@
 <template>
   <div class="navbar">
     <div class="right-menu">
+      <!-- 主题色 -->
+      <ThemeSelect class="right-menu-item hover-effect" id="guide-theme" />
+      <!-- 语言切换 -->
       <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -15,13 +18,13 @@
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item> {{ $t('msg.navBar.home') }} </el-dropdown-item>
+              <el-dropdown-item> {{ $t('navBar.home') }} </el-dropdown-item>
             </router-link>
             <a target="_blank" href="">
-              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
+              <el-dropdown-item>{{ $t('navBar.course') }}</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout">
-              {{ $t('msg.navBar.logout') }}
+            <el-dropdown-item divided @click.native="logout">
+              {{ $t('navBar.logout') }}
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -31,9 +34,16 @@
 </template>
 
 <script>
+import ThemeSelect from '@/components/ThemeSelect'
 export default {
+  components: {
+    ThemeSelect
+  },
+
   methods: {
-    logout() {}
+    logout() {
+      this.$store.dispatch('user/logout')
+    }
   }
 }
 </script>
@@ -84,6 +94,10 @@ export default {
         }
       }
     }
+  }
+
+  ::v-deep .el-dropdown {
+    font-size: 24px;
   }
 }
 </style>

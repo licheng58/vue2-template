@@ -4,7 +4,7 @@ Vue.use(Vuex)
 import getters from './getters'
 import user from './modules/user.js'
 import app from './modules/app'
-// import theme from './modules/theme'
+import theme from './modules/theme'
 import permission from './modules/permission'
 
 export default new Vuex.Store({
@@ -12,7 +12,7 @@ export default new Vuex.Store({
   modules: {
     user,
     app,
-    // theme,
+    theme,
     permission
   }
 })

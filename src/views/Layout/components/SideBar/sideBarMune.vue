@@ -3,9 +3,9 @@
   <el-menu
     :default-active="activeMenu"
     :collapse="!$store.getters.sidebarOpened"
-    background-color="#304156"
-    text-color="#bfcbd9"
-    active-text-color="#f4f4f5"
+    :background-color="$store.getters.mainColor"
+    :text-color="$store.getters.cssVar.menuText"
+    :active-text-color="$store.getters.cssVar.menuAvtiveText"
     :unique-opened="true"
     router
   >
@@ -20,16 +20,11 @@
 <script>
 import SidebarItem from './sidebarItem.vue'
 import { filterRouters, generateMenus } from '@/utils/route'
-
 export default {
   name: 'SidebarMune',
 
   components: {
     SidebarItem
-  },
-
-  created() {
-    console.log(233)
   },
 
   computed: {
@@ -45,9 +40,7 @@ export default {
 
     // 计算路由表结构
     filterRoutes: function () {
-      console.log(this.$route)
-      const filterRoutes = filterRouters(this.$router.getRoutes())
-      // console.log(generateMenus(filterRoutes))
+      const filterRoutes = filterRouters(this.$store.getters.routes)
       return generateMenus(filterRoutes)
     }
   }

@@ -35,6 +35,7 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response) => {
+    // console.log(response.data)
     const { success, message, data } = response.data
     //   要根据success的成功与否决定下面的操作
     if (success) {
@@ -47,7 +48,14 @@ service.interceptors.response.use(
   },
   (error) => {
     // TODO: 将来处理 token 超时问题
-    Message.error(error.message) // 提示错误信息
+    // console.log(error.message)
+    if (error.message === 'Request failed with status code 401') {
+      Message.error(error.message) // 提示错误信息
+      // 退出登陆
+      store.dispatch('user/logout')
+    } else {
+      Message.error(error.message) // 提示错误信息
+    }
     return Promise.reject(error)
   }
 )

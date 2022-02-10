@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <!-- 左侧 menu -->
-    <side-bar class="sidebar-container" />
+    <side-bar class="sidebar-container" :style="{ background: mainColor }" />
     <div class="main-container">
       <div class="fixed-header">
         <nav-bar />
@@ -29,7 +29,11 @@ export default {
     }
   },
 
-  mounted() {}
+  computed: {
+    mainColor: function () {
+      return this.$store.getters.mainColor
+    }
+  }
 }
 </script>
 
@@ -52,7 +56,7 @@ export default {
   width: calc(100% - #{$sideBarWidth});
 }
 
-.sidebar-container {
-  background: #{$menuBg};
-}
+// .sidebar-container {
+//   background: #{$menuBg};
+// }
 </style>

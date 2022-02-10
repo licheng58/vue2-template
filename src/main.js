@@ -5,7 +5,7 @@ import store from './store'
 import '@/styles/index.scss'
 import Element from 'element-ui'
 Vue.use(Element, { size: 'small', zIndex: 3000 })
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css'
 
 // 全局组件
 import SvgIcon from '@/icons'

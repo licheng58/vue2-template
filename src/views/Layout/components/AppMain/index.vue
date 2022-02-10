@@ -2,8 +2,7 @@
   <div class="app-main">
     {{ $t('theme.themeColorChange') }}
 
-    <el-date-picker v-model="value" type="date" placeholder="选择日期">
-    </el-date-picker>
+    <el-button type="primary">修改主题色</el-button>
   </div>
 </template>
 
