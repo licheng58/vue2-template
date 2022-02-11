@@ -1,8 +1,15 @@
 <template>
   <div class="navbar">
-    <!-- 切换侧边栏 -->
-    <Hamburger class="hamburger-container" id="guide-hanburger" />
+    <div class="left-menu">
+      <!-- 切换侧边栏 -->
+      <Hamburger class="hamburger-container" id="guide-hanburger" />
+      <!-- 动态面包屑 -->
+      <BreadCrumb class="breadcrumb-container" id="guide-breadcrumb" />
+    </div>
+
     <div class="right-menu">
+      <!-- 引导 -->
+      <Guide class="right-menu-item hover-effect" id="guide-start" />
       <!-- 搜索 -->
       <HeaderSearch class="right-menu-item hover-effect" id="guide-search" />
       <!-- 全屏切换 -->
@@ -45,13 +52,17 @@ import ScreenFull from '@/components/ScreenFull'
 import LangSelect from '@/components/LangSelect'
 import HeaderSearch from '@/components/HeaderSearch'
 import Hamburger from '@/components/Hamburger'
+import Guide from '@/components/Guide'
+import BreadCrumb from '@/components/BreadCrumb'
 export default {
   components: {
     ThemeSelect,
     ScreenFull,
     LangSelect,
     HeaderSearch,
-    Hamburger
+    Hamburger,
+    Guide,
+    BreadCrumb
   },
 
   methods: {
@@ -69,7 +80,10 @@ export default {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   .hamburger-container {
     line-height: 46px;
     height: 100%;
@@ -108,10 +122,6 @@ export default {
         }
       }
     }
-  }
-
-  ::v-deep .el-dropdown {
-    font-size: 24px;
   }
 }
 </style>

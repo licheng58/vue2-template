@@ -8,6 +8,9 @@
     <div class="main-container">
       <div class="fixed-header">
         <nav-bar />
+
+        <!-- tags -->
+        <tags-view id="guide-tags"></tags-view>
       </div>
       <app-main />
     </div>
@@ -19,11 +22,13 @@
 import SideBar from './components/SideBar/index.vue'
 import NavBar from './components/NavBar/index.vue'
 import AppMain from './components/AppMain/index.vue'
+import TagsView from '@/components/TagsView'
 export default {
   components: {
     SideBar,
     NavBar,
-    AppMain
+    AppMain,
+    TagsView
   },
 
   data() {

@@ -94,6 +94,7 @@ export default {
      * 搜索库相关
      */
     initFuse(searchPool) {
+      console.log(searchPool)
       return new Fuse(searchPool, {
         // 是否按优先级进行排序
         shouldSort: true,

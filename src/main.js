@@ -11,9 +11,19 @@ import 'element-ui/lib/theme-chalk/index.css'
 import SvgIcon from '@/icons'
 Vue.component('svg-icon', SvgIcon)
 
-
 // 国际化
 import i18n from '@/i18n'
+
+//过滤器
+import filters from '@/filters'
+Object.keys(filters).forEach((key) => {
+  Vue.filter(key, filters[key])
+})
+
+import directives from '@/directives'
+Object.keys(directives).forEach((key) => {
+  Vue.directive(key, directives[key])
+})
 
 // 导入页面鉴权
 import '@/permission.js'
