@@ -7,13 +7,13 @@
       <el-col :span="18">
         <el-card>
           <el-tabs v-model="activeName">
-            <el-tab-pane :label="$t('msg.profile.feature')" name="feature">
+            <el-tab-pane :label="$t('profile.feature')" name="feature">
               <feature :features="featureData" />
             </el-tab-pane>
-            <el-tab-pane :label="$t('msg.profile.chapter')" name="chapter">
+            <el-tab-pane :label="$t('profile.chapter')" name="chapter">
               <chapter />
             </el-tab-pane>
-            <el-tab-pane :label="$t('msg.profile.author')" name="author">
+            <el-tab-pane :label="$t('profile.author')" name="author">
               <author />
             </el-tab-pane>
           </el-tabs>

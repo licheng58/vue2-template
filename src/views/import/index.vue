@@ -22,7 +22,7 @@ export default {
       const updateData = this.generateData(results)
       await userBatchImport(updateData)
       Message.success({
-        message: results.length + this.$i18n.t('msg.excel.importSuccess'),
+        message: results.length + this.$i18n.t('excel.importSuccess'),
         type: 'success'
       })
       this.$router.push('/user/manage')

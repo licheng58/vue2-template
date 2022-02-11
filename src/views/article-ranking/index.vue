@@ -1,9 +1,3 @@
 <template>
-  <div class="article-create">文章排名</div>
+  <div class="aa">123</div>
 </template>
-
-<script>
-export default {}
-</script>
-
-<style></style>
