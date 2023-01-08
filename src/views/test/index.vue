@@ -2,6 +2,7 @@
   <div class="my-container">
     <div>{{ num3 }}</div>
     <div>{{ num4 }}</div>
+    <button @click="handleClick">debounce</button>
   </div>
 </template>
 
@@ -16,6 +17,26 @@ export default {
   },
 
   created() {
+    // const aa = {
+    //   name: '123',
+    //   age: 1111
+    // }
+
+    this.bi()
+
+    const aa = ['11', '22', '31']
+    const bb = []
+
+    for (const k in aa) {
+      bb[k] = aa[k]
+    }
+    // console.log(bb)
+
+    // for (const k of aa) {
+    //   console.log(k)
+    //   console.log(aa[k])
+    // }
+
     // obj = {
     //   a: { name: 'abc' },
     //   b: 2
@@ -31,16 +52,16 @@ export default {
     //   return newObj
     // }
     // let newObj = fn(obj)
-    const obj = {
-      a: {
-        name: '123'
-      },
-      b: 222,
-      c: [1, 2, 3]
-    }
+    // const obj = {
+    //   a: {
+    //     name: '123'
+    //   },
+    //   b: 222,
+    //   c: [1, 2, 3]
+    // }
 
-    const newObj = this.deepCopy(obj)
-    console.log(newObj)
+    // const newObj = this.deepCopy(obj)
+    // console.log(newObj)
     // console.log(newObj === obj)
     // console.log(typeof [1, 2] === 'object')
     // const a = []
@@ -48,9 +69,55 @@ export default {
 
     // const a = 1
     // console.log(this.getType(a))
+
+    function Aaa(name, age) {
+      const that = this
+      ;(that.name = name), (that.age = age)
+    }
+    Aaa.prototype = {
+      // prototype对象里面又有其他的属性
+      showName: function () {
+        console.log("I'm " + this.name) //this是什么要看执行的时候谁调用了这个函数
+      },
+      showAge: function () {
+        console.log("And I'm " + this.age) //this是什么要看执行的时候谁调用了这个函数
+      }
+    }
+
+    const ccc = new Aaa('aaa', 11)
+    ccc.showName()
   },
 
   methods: {
+    bi() {
+      let a = 111
+      const b = function () {
+        console.log(a)
+      }
+      b()
+    },
+    debounce(fn, delay) {
+      var timer = null
+
+      return function () {
+        console.log(timer)
+        if (timer) clearTimeout(timer)
+        timer = setTimeout(function () {
+          fn.apply(this)
+        }, delay)
+      }
+    },
+
+    handleClick() {
+      this.debounce(function () {
+        console.log('debounce函数执行了' + Date.now())
+      }, 2000)()
+    },
+
+    fn() {
+      console.log('触发防抖函数')
+    },
+
     // deepClone(obj) {
     //   const newObj = {}
     //   for (let key in obj) {
@@ -75,17 +142,15 @@ export default {
     },
 
     deepCopy(obj) {
-      let newObj = {}
-      // if (typeof obj !== 'object') return
+      let newObj = obj.constructor === Array ? [] : {}
+      if (typeof obj !== 'object') return
       for (const k in obj) {
         if (typeof obj[k] === 'object') {
-          newObj[k] = obj[k].constructor === Array ? [] : {}
-          this.deepCopy(obj[k])
+          newObj[k] = this.deepCopy(obj[k])
         } else {
           newObj[k] = obj[k]
         }
       }
-      // console.log(newObj)
       return newObj
     }
   },

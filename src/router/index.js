@@ -14,6 +14,10 @@ export const publicRoutes = [
     component: () => import('@/views/Login')
   },
   {
+    path: '/test',
+    component: () => import('@/views/test')
+  },
+  {
     path: '/',
     // 注意：带有路径“/”的记录中的组件“默认”是一个不返回 Promise 的函数
     component: layout,
@@ -146,7 +150,7 @@ export const privateRoutes = [
 /**
  * 初始化路由表
  */
-export function resetRouter() {
+export function resetRouter () {
   if (
     store.getters.userInfo &&
     store.getters.userInfo.permission &&

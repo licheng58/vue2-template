@@ -1,7 +1,7 @@
 import router from '@/router'
 import store from '@/store'
 // 路由白名单
-const whiteList = ['/login']
+const whiteList = ['/login', '/test']
 /**
  * 路由前置
  */
