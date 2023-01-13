@@ -21,22 +21,17 @@ export default {
     //   name: '123',
     //   age: 1111
     // }
-
-    this.bi()
-
-    const aa = ['11', '22', '31']
-    const bb = []
-
-    for (const k in aa) {
-      bb[k] = aa[k]
-    }
+    // this.bi()
+    // const aa = ['11', '22', '31']
+    // const bb = []
+    // for (const k in aa) {
+    //   bb[k] = aa[k]
+    // }
     // console.log(bb)
-
     // for (const k of aa) {
     //   console.log(k)
     //   console.log(aa[k])
     // }
-
     // obj = {
     //   a: { name: 'abc' },
     //   b: 2
@@ -59,33 +54,46 @@ export default {
     //   b: 222,
     //   c: [1, 2, 3]
     // }
-
     // const newObj = this.deepCopy(obj)
     // console.log(newObj)
     // console.log(newObj === obj)
     // console.log(typeof [1, 2] === 'object')
     // const a = []
     // console.log(a instanceof Array)
-
     // const a = 1
     // console.log(this.getType(a))
+    // function Aaa(name, age) {
+    //   const that = this
+    //   ;(that.name = name), (that.age = age)
+    // }
+    // Aaa.prototype = {
+    //   // prototype对象里面又有其他的属性
+    //   showName: function () {
+    //     console.log("I'm " + this.name) //this是什么要看执行的时候谁调用了这个函数
+    //   },
+    //   showAge: function () {
+    //     console.log("And I'm " + this.age) //this是什么要看执行的时候谁调用了这个函数
+    //   }
+    // }
+    // const ccc = new Aaa('aaa', 11)
+    // ccc.showName()
 
-    function Aaa(name, age) {
-      const that = this
-      ;(that.name = name), (that.age = age)
+    const obj = {
+      name: '111'
     }
-    Aaa.prototype = {
-      // prototype对象里面又有其他的属性
-      showName: function () {
-        console.log("I'm " + this.name) //this是什么要看执行的时候谁调用了这个函数
+
+    Object.defineProperty(obj, 'name', {
+      // eslint-disable-next-line getter-return
+      get: function () {
+        console.log('调用了get')
       },
-      showAge: function () {
-        console.log("And I'm " + this.age) //this是什么要看执行的时候谁调用了这个函数
+      set: function (newV) {
+        console.log('调用了set，新值是' + newV)
       }
-    }
+    })
 
-    const ccc = new Aaa('aaa', 11)
-    ccc.showName()
+    obj.name
+    obj.name = '222'
   },
 
   methods: {
